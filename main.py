@@ -8,23 +8,26 @@ while (True):
 
     #img = cv2.imread("Parallellines.jpg")
 
+    #downscaled = cv2.resize(img, (1280, 720))
+
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    blur = cv2.blur(gray, (5, 5))
+    blur = cv2.blur(gray, (3, 3))
 
     ret, thresh = cv2.threshold(blur, 100, 255, cv2.THRESH_BINARY)
 
     edges = cv2.Canny(thresh, 50, 150, apertureSize=3)
 
     # Masking image at x=300, y=300 for a w and h of 720
-    x = 300
-    y = 100
-    w = h = 720
+    x = 500
+    y = 400
+    w = 500
+    h = 500
     mask = np.zeros(edges.shape[:2], np.uint8)
     mask[y:y + h, x:x + w] = 255
     maskimg = cv2.bitwise_and(edges, edges, mask=mask)
 
-    lines = cv2.HoughLinesP(maskimg, rho=1, theta=np.pi/180, threshold=100, minLineLength=50, maxLineGap=720)
+    lines = cv2.HoughLinesP(maskimg, rho=1, theta=np.pi/180, threshold=70, minLineLength=100, maxLineGap=650)
 
 
     if lines is not None:
