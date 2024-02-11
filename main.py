@@ -40,8 +40,14 @@ while (True):
         for line in lines: # iterates through each line detected 
             x1, y1, x2, y2 = line[0] # defining values from line parameters
 
+            # DRAW LINES
             cv2.line(img, (x1, y1), (x2, y2), (255, 0, 0), 4) # draws line by plotting two points (x1,y1) (x2,y2) and draws a line between them
-            
+
+        
+        # FOR LINE IN LINES UNDER 2
+        for line in lines[:2]: # iterates through each line detected 
+            x1, y1, x2, y2 = line[0] # defining values from line parameters
+
             # CALCULATE MID LINE 
             x1sum += x1 # adding new values to sum vars... 
             x2sum += x2
