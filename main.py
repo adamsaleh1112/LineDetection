@@ -1,5 +1,5 @@
 # IMPORT NUMPY AND CV2
-import numpy # importing numpy, an array library that allows video data to be stored in arrays
+import numpy as np # importing numpy, an array library that allows video data to be stored in arrays
 import cv2 # importing opencv-python, an image processing library that allows functions such as blur, cropping, etc.
 
 # VIDEO = VIDEO CAPTURE
